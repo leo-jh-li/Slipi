@@ -31,13 +31,13 @@ public class Gate : MonoBehaviour
         }
     }
 
-    public void CloseGate() {
+    public void CloseGate(int turnClosed) {
         m_open = false;
+        StartCoroutine(AnimateCloseGate(turnClosed));
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag == "Piece") {
-            anim.SetTrigger("CloseGate");
-        }
+    private IEnumerator AnimateCloseGate(int turnClosed) {
+        yield return new WaitForSeconds(turnClosed / Constants.instance.PIECE_SLIDE_SPEED);
+        anim.SetTrigger("CloseGate");
     }
 }

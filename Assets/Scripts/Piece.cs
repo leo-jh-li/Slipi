@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class Piece : MonoBehaviour
 {
-    public float slideSpeed;
     public Coord coord;
     [HideInInspector] public EntityType entityType;
     [HideInInspector] public bool inMotion;
     public TileType goalType;       // The goal type for this Piece
     public bool placedInGoal;
     [SerializeField] private string m_finishedPieceLayerName;
+    private float m_slideSpeed;
     private static System.Func<bool> m_onPieceStop;
+
+    private void Start() {
+        m_slideSpeed = Constants.instance.PIECE_SLIDE_SPEED;
+    }
 
     public void SlideTo(Direction dir, Vector3 destination) {
         if (destination != transform.localPosition) {
@@ -24,7 +28,7 @@ public class Piece : MonoBehaviour
         inMotion = true;
         Vector3 incVect = Tile.GetDirectionVector(dir);
         do {
-            transform.localPosition += incVect * Time.deltaTime * slideSpeed;
+            transform.localPosition += incVect * Time.deltaTime * m_slideSpeed;
             // Clamp if destination was passed
             if (dir == Direction.LEFT && transform.localPosition.x <= destination.x ||
                 dir == Direction.RIGHT && transform.localPosition.x >= destination.x || 

@@ -11,6 +11,7 @@ public class Constants : MonoBehaviour
     public string GOAL_SFX_NAME;
     public string LEVEL_COMPLETE_SFX_NAME;
     public string SLIDE_SFX_NAME;
+    public float PIECE_SLIDE_SPEED;
 
     public static Constants instance {
         get {

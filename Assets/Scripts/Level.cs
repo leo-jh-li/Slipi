@@ -38,7 +38,7 @@ public class Level
     }
 
     // Moves given Piece moveDistance tiles in given direction if possible and returns true iff the complete movement was successful.
-    public bool MovePiece(Piece piece, Direction dir, int moveDistance) {
+    public bool MovePiece(Piece piece, Direction dir, int moveDistance, int turnNum) {
         Coord startCoord = piece.coord;
         Coord destCoord = piece.coord.ApplyMovement(dir, moveDistance);
         if (!ValidCoord(startCoord)) {
@@ -80,7 +80,7 @@ public class Level
                 foreach (GameObject obj in m_levelObjects[gateCoord]) {
                     Gate gate = obj.GetComponent<Gate>();
                     if (gate != null) {
-                        gate.CloseGate();
+                        gate.CloseGate(turnNum);
                         break;
                     }
                 }
@@ -115,15 +115,17 @@ public class Level
         bool anyMoveMade = false;
         bool piecesMovedThisTurn = true;
         if (!PiecesInMotion()) {
+            int turnNum = 1;
             // Repeat until no pieces no longer move
             while (piecesMovedThisTurn) {
                 piecesMovedThisTurn = false;
                 foreach (Piece piece in pieces) {
-                    if (!piece.placedInGoal && MovePiece(piece, dir, 2)) {
+                    if (!piece.placedInGoal && MovePiece(piece, dir, 2, turnNum)) {
                         piecesMovedThisTurn = true;
                         anyMoveMade = true;
                     }
                 }
+                turnNum++;
             }
             foreach (Piece piece in pieces) {
                 piece.SlideTo(dir, CoordToPos(piece.coord));

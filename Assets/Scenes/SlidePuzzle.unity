@@ -19229,6 +19229,7 @@ MonoBehaviour:
   GOAL_SFX_NAME: GOAL
   LEVEL_COMPLETE_SFX_NAME: LEVEL_COMPLETE
   SLIDE_SFX_NAME: SLIDE [disabled]
+  PIECE_SLIDE_SPEED: 40
 --- !u!4 &1584192216
 Transform:
   m_ObjectHideFlags: 0
@@ -24803,7 +24804,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
