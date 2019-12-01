@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Piece
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Map
+    uniqueID: 1128510301
+    locked: 0
+  - name: Goal Markers
+    uniqueID: 535225881
+    locked: 0
+  - name: FinishedPieces
+    uniqueID: 170802943
+    locked: 0
+  - name: Pieces
+    uniqueID: 1173764435
+    locked: 0
+  - name: Gates
+    uniqueID: 3656076767
+    locked: 0
