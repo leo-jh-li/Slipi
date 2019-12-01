@@ -18,13 +18,13 @@ public class PlayerControls : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetAxis("Horizontal") > 0) {
+        if (Input.GetAxisRaw("Horizontal") > 0) {
             m_gameManager.MakeMove(Direction.RIGHT);
-        } else if (Input.GetAxis("Horizontal") < 0) {
+        } else if (Input.GetAxisRaw("Horizontal") < 0) {
             m_gameManager.MakeMove(Direction.LEFT);
-        } else if (Input.GetAxis("Vertical") > 0) {
+        } else if (Input.GetAxisRaw("Vertical") > 0) {
             m_gameManager.MakeMove(Direction.UP);
-        } else if (Input.GetAxis("Vertical") < 0) {
+        } else if (Input.GetAxisRaw("Vertical") < 0) {
             m_gameManager.MakeMove(Direction.DOWN);
         }
         if (Input.GetKeyDown("r")) {
