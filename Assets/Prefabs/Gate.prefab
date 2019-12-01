@@ -306,6 +306,6 @@ MonoBehaviour:
   gateType: 0
   m_spriteRenderer: {fileID: 6099202037780303274}
   m_openSpr: {fileID: 21300000, guid: 55009ed7512eaf5439087f7c650cdbca, type: 3}
-  m_closedSpr: {fileID: 21300000, guid: ee038ce14babb1c4d8827a666ca038a9, type: 3}
+  m_closedSpr: {fileID: 0}
   m_horizontalRotation: {x: 0, y: 0, z: 0}
   m_verticalRotation: {x: 0, y: 0, z: 90}
