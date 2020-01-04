@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     private void Start() {
         m_playerControls = GetComponent<PlayerControls>();
         Piece.SetVictoryCheckCallback(OnPieceStop);
+        PersistentData.InitializeData(m_levelSelect.GetLevelQuantity());
         if (t_autoGenerate) {
             GenerateLevel();
         }
@@ -56,7 +57,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(delay / 2);
         GenerateFromCurrLevelData();
         m_cameraBehaviour.ResizeCamera(m_currLevel.GetWidth());
-        m_uiManager.LoadPersonalBest(m_currLevelData.playerBestMoves);
+        m_uiManager.LoadPersonalBest(PersistentData.GetBest(m_currLevelData.levelId));
         m_uiManager.UpdateLevelNumber(m_currLevelData.levelId);
         yield return new WaitForSeconds(delay / 2);
         m_playerControls.enabled = true;
@@ -77,13 +78,14 @@ public class GameManager : MonoBehaviour
     // Function to be run each time a piece stops moving; returns true and ends a level iff the current level is complete
     private bool OnPieceStop() {
         if (!m_currLevel.PiecesInMotion()) {
-            AudioManager.instance.Stop(Constants.instance.SLIDE_SFX_NAME);
+            // Slide sfx disabled
+            // AudioManager.instance.Stop(Constants.instance.SLIDE_SFX_NAME);
         }
         if (m_currLevel.PiecesPlacedInGoal()) {
-            AudioManager.instance.Stop(Constants.instance.SLIDE_SFX_NAME);
-            m_uiManager.SetPersonalBest(m_currLevelData.levelId, m_movesMade);
-            LoadLevel(m_currLevelData.levelId);
-            m_uiManager.LoadPersonalBest(m_currLevelData.playerBestMoves);
+            // Slide sfx disabled
+            // AudioManager.instance.Stop(Constants.instance.SLIDE_SFX_NAME);
+            PersistentData.UpdateBest(m_currLevelData.levelId, m_movesMade);
+            m_uiManager.LoadPersonalBest(PersistentData.GetBest(m_currLevelData.levelId));
             m_uiManager.FinishLevel(m_currLevelData.levelId, LevelData.GetClearRank(m_currLevelData, m_movesMade));
             m_playerControls.onLevelCompleteScreen = true;
             return true;

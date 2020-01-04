@@ -19,7 +19,8 @@ public class Piece : MonoBehaviour
 
     public void SlideTo(Direction dir, Vector3 destination) {
         if (destination != transform.localPosition) {
-            AudioManager.instance.Play(Constants.instance.SLIDE_SFX_NAME);
+            // Slide sfx disabled
+            // AudioManager.instance.Play(Constants.instance.SLIDE_SFX_NAME);
             StartCoroutine(AnimateSlide(dir, destination));
         }
     }

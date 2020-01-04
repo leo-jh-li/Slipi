@@ -8,7 +8,6 @@ public class LevelSelectButton : MonoBehaviour
 {
     [SerializeField] private Image m_background;
     [SerializeField] private TextMeshProUGUI m_levelNumber;
-    
     [SerializeField] private TextMeshProUGUI m_bestText;
     [SerializeField] private RawImage m_levelPreview;
 

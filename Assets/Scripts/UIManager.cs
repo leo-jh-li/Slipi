@@ -18,7 +18,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private LevelSelect m_levelSelect;
     [SerializeField] private LevelUI m_levelUI;
     public static Color[] rankColours;     // Background colours for platinum clear, gold clear, silver clear, clear, and no clear
-    private GameCompleteType m_bestCompleteTypeDisplayed;     // The highest level type of game complete shown to the player
     [SerializeField] private GameObject m_gameCompleteScreen;
     [SerializeField] private GameObject[] m_completeTypeScreens;
 
@@ -114,19 +113,15 @@ public class UIManager : MonoBehaviour
         m_levelUI.UpdateMoves(moves);
     }
 
-    public void SetPersonalBest(int levelIndex, int best) {
-        m_levelSelect.SavePlayerBest(levelIndex, best);
-    }
-
     public void ShowGameComplete(GameCompleteType gameCompleteType) {
-        if (m_bestCompleteTypeDisplayed >= gameCompleteType) {
+        if ((GameCompleteType) PersistentData.GetScreenSeen() >= gameCompleteType) {
             // Don't display game complete if player has already seen it or a better one before
             return;
         }
         if (gameCompleteType == GameCompleteType.PERFECT || gameCompleteType == GameCompleteType.BRONZE_AND_SILVER) {
             m_gameCompleteScreen.SetActive(true);
             m_completeTypeScreens[(int) gameCompleteType].SetActive(true);
-            m_bestCompleteTypeDisplayed = gameCompleteType;
+            PersistentData.SetScreenSeen(gameCompleteType);
         }
     }
 }
