@@ -17,7 +17,6 @@ public struct LevelData
     public Texture2D map;
     public int minMoves;        // The minimum number of moves required to clear the level
     public int silverMoves;     // The greatest number moves acceptable to attain a silver ranking
-    [HideInInspector] public int playerBestMoves;
 
     public static ClearRank GetClearRank(LevelData levelData, int moves) {
         if (moves == 0) {

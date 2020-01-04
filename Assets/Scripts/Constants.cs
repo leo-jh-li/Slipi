@@ -12,6 +12,7 @@ public class Constants : MonoBehaviour
     public string LEVEL_COMPLETE_SFX_NAME;
     public string SLIDE_SFX_NAME;
     public float PIECE_SLIDE_SPEED;
+    public string HIGHEST_CLEAR_TYPE_KEY;   // Key for the 
 
     public static Constants instance {
         get {

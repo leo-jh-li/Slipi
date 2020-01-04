@@ -44,6 +44,7 @@ public class LevelSelect : MonoBehaviour
 
             // Make new page if it does not exist
             if (page >= m_pages.Count) {
+                // Immediate parent must be a canvas for UI scaling
                 GameObject newPage = Instantiate(m_pagePrefab, m_pagesContainer);
                 newPage.SetActive(false);
                 m_pages.Add(newPage);
@@ -60,6 +61,9 @@ public class LevelSelect : MonoBehaviour
                 if (++y >= m_gridHeight) {
                     y = 0;
                 }
+            }
+            if (PersistentData.GetBest(i) != 0) {
+                UpdateClearInfo(i);
             }
         }
         if (m_pages.Count > 0) {
@@ -123,24 +127,22 @@ public class LevelSelect : MonoBehaviour
 
     public void UpdateClearInfo(int levelId) {
         LevelSelectButton levelSelectButton = m_selectButtons[levelId].GetComponent<LevelSelectButton>();
-        int best = m_levelData[levelId].playerBestMoves;
+        int best = PersistentData.GetBest(levelId);
         levelSelectButton.UpdateColour(LevelData.GetClearRank(m_levelData[levelId], best));
         levelSelectButton.UpdateBest(best.ToString());
-    }
-
-    public void SavePlayerBest(int levelIndex, int moves) {
-        if (m_levelData[levelIndex].playerBestMoves == 0 || moves < m_levelData[levelIndex].playerBestMoves) {
-            m_levelData[levelIndex].playerBestMoves = moves;
-        }
     }
     
     public LevelData GetLevelData(int index) {
         return m_levelData[index];
     }
 
+    public int GetLevelQuantity() {
+        return m_levelData.Length;
+    }
+
     public bool AllLevelsComplete() {
-        foreach (LevelData levelData in m_levelData) {
-            if (levelData.playerBestMoves == 0) {
+        for (int i = 0; i < GetLevelQuantity(); i++) {
+            if (PersistentData.GetBest(i) == 0) {
                 return false;
             }
         }
@@ -148,8 +150,8 @@ public class LevelSelect : MonoBehaviour
     }
     
     public bool AllLevelsPerfect() {
-        foreach (LevelData levelData in m_levelData) {
-            ClearRank rank = LevelData.GetClearRank(levelData, levelData.playerBestMoves);
+        for (int i = 0; i < GetLevelQuantity(); i++) {
+            ClearRank rank = LevelData.GetClearRank(m_levelData[i], PersistentData.GetBest(i));
             if (rank != ClearRank.GOLD_CLEAR && rank != ClearRank.PLATINUM_CLEAR) {
                 return false;
             }

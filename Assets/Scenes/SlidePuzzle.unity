@@ -4275,7 +4275,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &340220124
 RectTransform:
@@ -6753,92 +6753,74 @@ MonoBehaviour:
     map: {fileID: 2800000, guid: 63e25bfbd0e730043943086e55d4fdb1, type: 3}
     minMoves: 5
     silverMoves: 6
-    playerBestMoves: 0
   - levelId: 0
     map: {fileID: 2800000, guid: c7ee96935a4178d48abe285f4abb1552, type: 3}
     minMoves: 8
     silverMoves: 11
-    playerBestMoves: 0
   - levelId: 0
     map: {fileID: 2800000, guid: 8c87b1849a0a2ae458b0d5cf4218bc5f, type: 3}
     minMoves: 9
     silverMoves: 11
-    playerBestMoves: 0
   - levelId: 0
     map: {fileID: 2800000, guid: 0e3ce6d395be787448c3b824961a21d4, type: 3}
     minMoves: 5
     silverMoves: 6
-    playerBestMoves: 0
   - levelId: 0
     map: {fileID: 2800000, guid: 220e5cd00f088f74293af395d6067e6b, type: 3}
     minMoves: 7
     silverMoves: 8
-    playerBestMoves: 0
   - levelId: 0
     map: {fileID: 2800000, guid: 34c332590b9463c4bb87456367e47108, type: 3}
     minMoves: 6
     silverMoves: 8
-    playerBestMoves: 0
   - levelId: 0
     map: {fileID: 2800000, guid: e2353f2048142e14088976f53e699529, type: 3}
     minMoves: 9
     silverMoves: 10
-    playerBestMoves: 0
   - levelId: 0
     map: {fileID: 2800000, guid: fd16ecf97606575479035ed6aad6b85f, type: 3}
     minMoves: 10
     silverMoves: 12
-    playerBestMoves: 0
   - levelId: 0
     map: {fileID: 2800000, guid: b0e1534515c1ac44fb47973af34416fb, type: 3}
     minMoves: 13
     silverMoves: 15
-    playerBestMoves: 0
   - levelId: 0
     map: {fileID: 2800000, guid: 037800a32c701b44f8247c47960e228c, type: 3}
     minMoves: 17
     silverMoves: 25
-    playerBestMoves: 0
   - levelId: 0
     map: {fileID: 2800000, guid: 46e22d3388c6df14ebbb18924c1e1ae4, type: 3}
     minMoves: 28
     silverMoves: 30
-    playerBestMoves: 0
   - levelId: 0
     map: {fileID: 2800000, guid: 69685cbad1a24fc45a56ef132717bb54, type: 3}
     minMoves: 12
     silverMoves: 15
-    playerBestMoves: 0
   - levelId: 0
     map: {fileID: 2800000, guid: 3bc00194ae8c1fc4dac303f173b7ae71, type: 3}
     minMoves: 16
     silverMoves: 18
-    playerBestMoves: 0
   - levelId: 0
     map: {fileID: 2800000, guid: b30d95df35d87504b9fa14f56b14c326, type: 3}
     minMoves: 12
     silverMoves: 15
-    playerBestMoves: 0
   - levelId: 0
     map: {fileID: 2800000, guid: 3e5df7c00aef6d94b9ba19bf5159a417, type: 3}
     minMoves: 16
     silverMoves: 17
-    playerBestMoves: 0
   - levelId: 0
     map: {fileID: 2800000, guid: dc071c09a335d8b48918068cb3bd0aad, type: 3}
     minMoves: 16
     silverMoves: 18
-    playerBestMoves: 0
   - levelId: 0
     map: {fileID: 2800000, guid: 44d70d2d553a58449bda6900fc911b8e, type: 3}
     minMoves: 11
     silverMoves: 13
-    playerBestMoves: 0
   - levelId: 0
     map: {fileID: 2800000, guid: 89a9d4766e60fdc4c88d69cfde70d2ff, type: 3}
     minMoves: 30
     silverMoves: 33
-    playerBestMoves: 0
   inColours:
   - {r: 0, g: 0, b: 0, a: 1}
   - {r: 0.59607846, g: 0.59607846, b: 0.59607846, a: 1}
@@ -7461,6 +7443,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 587012502}
   m_CullTransparentMesh: 0
+--- !u!1 &590653832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 590653834}
+  - component: {fileID: 590653833}
+  m_Layer: 0
+  m_Name: BuildSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &590653833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590653832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad7258a0533d7de4eaa3221bcb072f85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildTarget: 0
+  m_instructionsText: {fileID: 1865599283}
+--- !u!4 &590653834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590653832}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &609931275
 GameObject:
   m_ObjectHideFlags: 0
@@ -12644,7 +12671,7 @@ Transform:
   - {fileID: 1584192216}
   - {fileID: 721012053}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &989310197
 GameObject:
@@ -15777,7 +15804,7 @@ Transform:
   - {fileID: 414135123}
   - {fileID: 825454318}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1282741367
 GameObject:
@@ -19230,6 +19257,7 @@ MonoBehaviour:
   LEVEL_COMPLETE_SFX_NAME: LEVEL_COMPLETE
   SLIDE_SFX_NAME: SLIDE [disabled]
   PIECE_SLIDE_SPEED: 40
+  HIGHEST_CLEAR_TYPE_KEY: HIGHEST_CLEAR_TYPE
 --- !u!4 &1584192216
 Transform:
   m_ObjectHideFlags: 0
@@ -22275,10 +22303,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "use the arrow keys (keyboard) or swipe (touch devices) to move pieces around
-    the level\n\npieces move until they collide with something\r\n\nmove all pieces
-    to their respective destinations to complete the level\r\n\ntry to use as few
-    moves as possible\r"
+  m_text: 'use the arrow keys to move pieces around the level
+
+
+    pieces move until they collide with something
+
+
+    move all pieces to their respective destinations to complete the level
+
+
+    try to use as few moves as possible'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -24738,7 +24772,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3.0999756, y: 132.5}
+  m_AnchoredPosition: {x: -3.1000977, y: 132.5}
   m_SizeDelta: {x: -140, y: -377.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1996179199
