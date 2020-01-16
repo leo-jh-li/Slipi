@@ -29,7 +29,7 @@ public static class PersistentData
         }
     }
 
-    // Return t highest level type of game complete shown to the player
+    // Return the highest level type of game complete shown to the player
     public static int GetScreenSeen() {
         return PlayerPrefs.GetInt(Constants.instance.HIGHEST_CLEAR_TYPE_KEY);
     }
